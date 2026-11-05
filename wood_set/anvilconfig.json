@@ -1,44 +1,40 @@
 {
-  "package": {
-    "namespace": "stark_as",
-    "project_name": "anvil_samples",
-    "company": "StarkTMA",
-    "display_name": "Anvil Samples",
-    "project_description": "Anvil Samples Packs",
-    "behavior_description": "Anvil Samples behavior Pack",
-    "resource_description": "Anvil Samples Resource Pack",
-    "target": "world"
-  },
-  "manifest": {
-    "release": "1.0.0",
-    "rp_uuid": [
-      "0bf80925-f453-423b-8364-54c9e36c21fb"
-    ],
-    "bp_uuid": [
-      "fe86ec3e-9db8-478b-8b20-c47634389dd7"
-    ],
-    "pack_uuid": "fa386d00-42f7-4170-bb59-a063f9499cdb",
-    "data_module_uuid": "69acf337-8a80-499e-b16c-cf04babb54bc",
-    "resource_module_uuid": "1fd67302-5ebc-4669-8e2f-39377efb7fdc",
-    "script_module_uuid": "ef347a4a-8cfa-45f4-9fa9-817dc548895a"
-  },
-  "features": {
-    "scriptapi": true,
-    "scriptui": true,
-    "pbr": false,
-    "random_seed": false,
-    "experimental": false
-  },
-  "build": {
-    "preview": false,
-    "entry_point": "scripts/python/main.py",
-    "minify": false,
-    "add_stamp": true,
-    "local_export": false,
-    "js_bundle_script": "node esbuild.js"
-  },
-  "anvil": {
-    "last_check": "2026-11-05 17:55:09",
-    "vanilla_version": "1.26.60"
-  }
+	"package": {
+		"namespace": "stark_as",
+		"project_name": "anvil_samples",
+		"company": "StarkTMA",
+		"display_name": "Anvil Samples",
+		"project_description": "Anvil Samples Packs",
+		"behavior_description": "Anvil Samples behavior Pack",
+		"resource_description": "Anvil Samples Resource Pack",
+		"target": "world"
+	},
+	"manifest": {
+		"release": "1.0.0",
+		"rp_uuid": ["0bf80925-f453-423b-8364-54c9e36c21fb"],
+		"bp_uuid": ["fe86ec3e-9db8-478b-8b20-c47634389dd7"],
+		"pack_uuid": "fa386d00-42f7-4170-bb59-a063f9499cdb",
+		"data_module_uuid": "69acf337-8a80-499e-b16c-cf04babb54bc",
+		"resource_module_uuid": "1fd67302-5ebc-4669-8e2f-39377efb7fdc",
+		"script_module_uuid": "ef347a4a-8cfa-45f4-9fa9-817dc548895a"
+	},
+	"features": {
+		"scriptapi": true,
+		"scriptui": true,
+		"pbr": false,
+		"random_seed": false,
+		"experimental": false
+	},
+	"build": {
+		"preview": false,
+		"entry_point": "scripts/python/main.py",
+		"minify": false,
+		"add_stamp": false,
+		"local_export": false,
+		"js_bundle_script": "node esbuild.js"
+	},
+	"anvil": {
+		"last_check": "2026-11-05 17:55:09",
+		"vanilla_version": "1.26.60"
+	}
 }

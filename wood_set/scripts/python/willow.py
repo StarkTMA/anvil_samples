@@ -6,13 +6,19 @@ Textures: the `willow_*` textures in `assets/bbmodels/wood_set.bbmodel` and
 `willow_hanging_sign`, `willow_boat` and `willow_chest_boat` in `assets/textures/items`.
 """
 
-from anvil.api.features import TreeFeature
+from anvil.api.core.filters import Filter
+from anvil.api.features import CoordinateRange, TreeFeature
+from anvil.api.features.feature_rule import FeatureRule
+from anvil.api.vanilla.biomes import MinecraftBiomeTags
 from anvil.api.vanilla.blocks import MinecraftBlockTypes
 from anvil.api.vanilla.items import MinecraftItemTypes
 from anvil.kit.blocks.wood_set import WoodSet
 
 STICK_CHANCE = 0.02
 """The chance that a leaf drops a stick when it is broken or decays."""
+
+TREE_CHANCE = 50.0
+"""The chance, in percent, that a swamp chunk grows one willow tree."""
 
 
 def create_willow_tree(willow: WoodSet) -> TreeFeature:
@@ -44,7 +50,28 @@ def create_willow_tree(willow: WoodSet) -> TreeFeature:
         .may_replace([MinecraftBlockTypes.Air(), leaves])
     )
     tree.queue()
+    create_willow_tree_rule(tree)
     return tree
+
+
+def create_willow_tree_rule(tree: TreeFeature) -> FeatureRule:
+    """Grows the willow tree in swamps.
+
+    Bedrock only registers a feature that a feature rule reaches, so without this rule
+    the saplings could not grow the tree either.
+    """
+    rule = FeatureRule("willow_tree_rule", tree.identifier, "surface_pass")
+    rule.biome_filter(Filter.has_biome_tag(MinecraftBiomeTags.Swamp))
+    rule.distribution(
+        iterations=1,
+        scatter_chance=TREE_CHANCE,
+        x=CoordinateRange("uniform", (0, 16)),
+        y="q.heightmap(v.worldx, v.worldz)",
+        z=CoordinateRange("uniform", (0, 16)),
+        coordinate_eval_order="xzy",
+    )
+    rule.queue()
+    return rule
 
 
 def register_willow() -> WoodSet:
