@@ -1,0 +1,21 @@
+{
+  "name": "anvil_samples",
+  "version": "1.0.0",
+  "description": "Anvil Samples Essentials",
+  "type": "module",
+  "scripts": {
+    "build": "node esbuild.js",
+    "test": "npx tsc --noemit"
+  },
+  "author": "Stark_As",
+  "license": "ISC",
+  "main": "esbuild.js",
+  "keywords": [],
+  "dependencies": {
+    "@minecraft/server": "^2.11.0",
+    "@minecraft/server-ui": "^2.3.0",
+    "@minecraft/vanilla-data": "^1.26.60",
+    "@starktma/minecraft-utils": "^1.5.47",
+    "esbuild": "^0.28.2"
+  }
+}
