@@ -21,8 +21,8 @@ pip install mcanvil
 ## Building a sample
 
 ```bash
-git clone <this repository>
-cd <repository folder>/wood_set
+git clone https://github.com/StarkTMA/anvil_samples.git
+cd anvil_samples/wood_set
 npm install
 anvil build
 ```
